@@ -1,5 +1,8 @@
-<%= form_tag("/search", method: "post") do %>
-  <%= label_tag(:q, "Search for:") %>
+<%= form_tag(action: "search", method: "post") do %>
+  <%= label_tag(:q, "Buscara placa del vehiculo:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>
+
+
+ 

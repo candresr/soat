@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   end
 
   def search
-    puts params[:q]
+    result = Poliza.find_by placa: params[:q]
+    if result.nil?
+      @placa = 'No hay Poliza Asociada'
+    else
+      @placa = result
+    end
   end
 end
