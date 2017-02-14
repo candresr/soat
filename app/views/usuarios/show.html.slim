@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Nombres:
+  = @usuario.nombres
+p
+  strong Apellidos:
+  = @usuario.apellidos
+p
+  strong Tipo documento:
+  = @usuario.tipo_documento
+p
+  strong Numero:
+  = @usuario.numero
+p
+  strong Telefono:
+  = @usuario.telefono
+
+= link_to 'Edit', edit_usuario_path(@usuario)
+'|
+= link_to 'Back', usuarios_path
