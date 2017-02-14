@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214041526) do
+ActiveRecord::Schema.define(version: 20170214152908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pagos", force: :cascade do |t|
+    t.integer  "numero_tcd"
+    t.string   "nombre_tdc"
+    t.date     "fecha_vencimiento"
+    t.integer  "codigo_seguridad"
+    t.integer  "numero_coutas"
+    t.integer  "id_usuario"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "polizas", force: :cascade do |t|
+    t.string   "clase"
+    t.integer  "subtipo"
+    t.integer  "años"
+    t.integer  "numero_pasajero"
+    t.integer  "cilindraje"
+    t.integer  "tonelada"
+    t.integer  "id_usuario"
+    t.integer  "id_pago"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nombres"

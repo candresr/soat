@@ -1,0 +1,35 @@
+h1 Listing polizas
+
+table
+  thead
+    tr
+      th Clase
+      th Subtipo
+      th Años
+      th Numero pasajero
+      th Cilindraje
+      th Tonelada
+      th Id usuario
+      th Id pago
+      th
+      th
+      th
+
+  tbody
+    - @polizas.each do |poliza|
+      tr
+        td = poliza.clase
+        td = poliza.subtipo
+        td = poliza.años
+        td = poliza.numero_pasajero
+        td = poliza.cilindraje
+        td = poliza.tonelada
+        td = poliza.id_usuario
+        td = poliza.id_pago
+        td = link_to 'Show', poliza
+        td = link_to 'Edit', edit_poliza_path(poliza)
+        td = link_to 'Destroy', poliza, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Poliza', new_poliza_path

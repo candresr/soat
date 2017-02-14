@@ -1,0 +1,13 @@
+= simple_form_for(@pago) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :numero_tcd
+    = f.input :nombre_tdc
+    = f.input :fecha_vencimiento
+    = f.input :codigo_seguridad
+    = f.input :numero_coutas
+    = f.input :id_usuario
+
+  .form-actions
+    = f.button :submit

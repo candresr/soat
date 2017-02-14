@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Clase:
+  = @poliza.clase
+p
+  strong Subtipo:
+  = @poliza.subtipo
+p
+  strong Años:
+  = @poliza.años
+p
+  strong Numero pasajero:
+  = @poliza.numero_pasajero
+p
+  strong Cilindraje:
+  = @poliza.cilindraje
+p
+  strong Tonelada:
+  = @poliza.tonelada
+p
+  strong Id usuario:
+  = @poliza.id_usuario
+p
+  strong Id pago:
+  = @poliza.id_pago
+
+= link_to 'Edit', edit_poliza_path(@poliza)
+'|
+= link_to 'Back', polizas_path

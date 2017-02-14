@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Numero tcd:
+  = @pago.numero_tcd
+p
+  strong Nombre tdc:
+  = @pago.nombre_tdc
+p
+  strong Fecha vencimiento:
+  = @pago.fecha_vencimiento
+p
+  strong Codigo seguridad:
+  = @pago.codigo_seguridad
+p
+  strong Numero coutas:
+  = @pago.numero_coutas
+p
+  strong Id usuario:
+  = @pago.id_usuario
+
+= link_to 'Edit', edit_pago_path(@pago)
+'|
+= link_to 'Back', pagos_path

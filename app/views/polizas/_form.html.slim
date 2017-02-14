@@ -1,0 +1,15 @@
+= simple_form_for(@poliza) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :clase
+    = f.input :subtipo
+    = f.input :años
+    = f.input :numero_pasajero
+    = f.input :cilindraje
+    = f.input :tonelada
+    = f.input :id_usuario
+    = f.input :id_pago
+
+  .form-actions
+    = f.button :submit
