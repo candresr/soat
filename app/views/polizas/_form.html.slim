@@ -2,14 +2,17 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :clase
+    
+    = label_tag( :clase, "Clase:")
+    = select("poliza", "clase", Tarifa.distinct.collect {|p| [ p.clase, p.clase ] })
     = f.input :subtipo
     = f.input :años
     = f.input :numero_pasajero
     = f.input :cilindraje
     = f.input :tonelada
-    = f.input :id_usuario
-    = f.input :id_pago
+    = f.input :placa
+    = f.hidden_field :id_usuario, :value => @current_user
+  
 
   .form-actions
     = f.button :submit

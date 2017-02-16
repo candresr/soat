@@ -53,6 +53,6 @@ class PolizasController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poliza_params
-      params.require(:poliza).permit(:clase, :subtipo, :años, :numero_pasajero, :cilindraje, :tonelada, :id_usuario, :id_pago)
+      params.require(:poliza).permit(:clase, :subtipo, :años, :numero_pasajero, :cilindraje, :tonelada, :id_usuario, :id_pago, :placa)
     end
 end

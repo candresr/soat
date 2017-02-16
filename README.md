@@ -14,3 +14,4 @@ rails db:migrate
 ## TESTDependencies:- RSpec Rails- FactoryGirl- FFaker- Rubocop- Shoulda-Matchers
 # Happy Coding! * [Instalation guide](doc/install.md)
 Authors:
+Cesar Ramirez

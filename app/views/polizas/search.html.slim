@@ -9,15 +9,11 @@ table
       th Numero pasajero
       th Cilindraje
       th Tonelada
-      th Id usuario
-      th Id pago
       th Placa
-      th
-      th
-      th
 
   tbody
-    - @polizas.each do |poliza|
+
+    - @get_poliza.each do |poliza|
       tr
         td = poliza.clase
         td = poliza.subtipo
@@ -25,13 +21,11 @@ table
         td = poliza.numero_pasajero
         td = poliza.cilindraje
         td = poliza.tonelada
-        td = poliza.id_usuario
-        td = poliza.id_pago
         td = poliza.placa
-        td = link_to 'Show', poliza
-        td = link_to 'Edit', edit_poliza_path(poliza)
-        td = link_to 'Destroy', poliza, data: { confirm: 'Are you sure?' }, method: :delete
-
 br
 
-= link_to 'New Poliza', new_poliza_path
+= link_to "Home", root_path 
+'|
+= link_to 'Comprar Poliza', new_poliza_path
+'|
+= link_to 'Pago', new_pago_path

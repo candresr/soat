@@ -13,6 +13,7 @@ class PagosController < ApplicationController
   # GET /pagos/new
   def new
     @pago = Pago.new
+    @current_user = session[:current_user] 
   end
 
   # GET /pagos/1/edit

@@ -5,9 +5,10 @@ class HomeController < ApplicationController
   def search
     result = Poliza.find_by placa: params[:q]
     if result.nil?
-      @placa = 'No hay Poliza Asociada'
+      redirect_to :controller => 'usuarios', :action => 'new'
     else
-      @placa = result
+      session[:current_user] = result.id_usuario
+      redirect_to :controller => 'usuarios', :action => 'edit', :id => result.id_usuario
     end
   end
 end

@@ -17,6 +17,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    @current_user = session[:current_user] 
   end
 
   # POST /usuarios
