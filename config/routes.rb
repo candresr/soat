@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  resources :polizas
-  resources :pagos
+  devise_for :users
+  resources :polizas do
+     member do
+      get 'list'
+     end
+  end
+
+  resources :pagos do
+    collection do
+      get 'resumen'
+      get 'resumenPdf'
+    end
+  end
   resources :usuarios
   root 'home#index'
   post 'home/search'

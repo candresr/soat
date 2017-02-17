@@ -10,9 +10,19 @@ class PolizasController < ApplicationController
   def show
   end
 
+  def list
+    result = Poliza.find(params[:id])
+    if result.nil?
+      render :new
+    else
+      @get_poliza = result
+    end
+  end
+
   # GET /polizas/new
   def new
     @poliza = Poliza.new
+    @current_user = session[:current_user]
   end
 
   # GET /polizas/1/edit
@@ -53,6 +63,6 @@ class PolizasController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poliza_params
-      params.require(:poliza).permit(:clase, :subtipo, :años, :numero_pasajero, :cilindraje, :tonelada, :id_usuario, :id_pago, :placa)
+      params.require(:poliza).permit(:clase, :subtipo, :años, :numero_pasajero, :cilindraje, :tonelada, :usuario_id, :pago_id, :placa,:tarifa_id)
     end
 end

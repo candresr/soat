@@ -1,4 +1,4 @@
-h1 Listing polizas
+h1 Su placa ya tiene un SOAT asociado
 
 table
   thead
@@ -13,15 +13,14 @@ table
 
   tbody
 
-    - @get_poliza.each do |poliza|
       tr
-        td = poliza.clase
-        td = poliza.subtipo
-        td = poliza.años
-        td = poliza.numero_pasajero
-        td = poliza.cilindraje
-        td = poliza.tonelada
-        td = poliza.placa
+        td = @get_poliza.clase
+        td = @get_poliza.subtipo
+        td = @get_poliza.años
+        td = @get_poliza.numero_pasajero
+        td = @get_poliza.cilindraje
+        td = @get_poliza.tonelada
+        td = @get_poliza.placa
 br
 
 = link_to "Home", root_path 

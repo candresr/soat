@@ -7,8 +7,9 @@ class HomeController < ApplicationController
     if result.nil?
       redirect_to :controller => 'usuarios', :action => 'new'
     else
-      session[:current_user] = result.id_usuario
-      redirect_to :controller => 'usuarios', :action => 'edit', :id => result.id_usuario
+      session[:current_user] = result.usuario_id
+      session[:current_poliza] = result.id
+      redirect_to :controller => 'usuarios', :action => 'edit', :id => result.usuario_id
     end
   end
 end

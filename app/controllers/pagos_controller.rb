@@ -6,6 +6,24 @@ class PagosController < ApplicationController
     @pagos = Pago.all
   end
 
+  def resumen
+    @resumen = Usuario.joins(:polizas,:pagos).find(params[:id])
+    @poliza = Poliza.joins(:tarifa).find(params[:id])
+    UsuarioCorreo.resumenCorreo(@resumen, @poliza).deliver_now
+  end
+
+  def resumenPdf
+    @resumen = Usuario.joins(:polizas,:pagos).find(params[:id])
+    @poliza = Poliza.joins(:tarifa).find(params[:id])
+    respond_to do |format|
+        format.html
+        format.pdf do
+        @pdf = render_to_string :pdf => 'resumen', :template => 'pagos/resumen.html.slim', :encoding => 'UTF-8'
+        send_data(@pdf, :filename => 'resumen',  :type=>'application/pdf')
+      end
+    end
+  end
+
   # GET /pagos/1
   def show
   end
@@ -22,10 +40,15 @@ class PagosController < ApplicationController
 
   # POST /pagos
   def create
+    id = pago_params[:usuario_id] 
     @pago = Pago.new(pago_params)
-
+    polizaUsuario = Poliza.find_by usuario_id: id
+   
     if @pago.save
-      redirect_to @pago, notice: 'Pago was successfully created.'
+      polizaUsuario.pago_id = @pago.id
+      polizaUsuario.tarifa_id = polizaUsuario.subtipo
+      polizaUsuario.save
+      redirect_to :action => 'resumen', :id => id
     else
       render :new
     end
@@ -54,6 +77,6 @@ class PagosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def pago_params
-      params.require(:pago).permit(:numero_tcd, :nombre_tdc, :fecha_vencimiento, :codigo_seguridad, :numero_coutas, :id_usuario)
+      params.require(:pago).permit(:numero_tcd, :nombre_tdc, :fecha_vencimiento, :codigo_seguridad, :numero_coutas, :usuario_id)
     end
 end

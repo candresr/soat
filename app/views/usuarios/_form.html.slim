@@ -4,7 +4,15 @@
   .form-inputs
     = f.input :nombres
     = f.input :apellidos
-    = f.input :tipo_documento
+    = label_tag( :tipo_documento, "Tipo Documento:")
+    select[name="usuario[tipo_documento]",id="usuario_tipo_documento"]
+        option[value="1"]
+          | Cedula Ciudadania
+        option[value="2"]
+          | Cedula Extranjeria
+        option[value="3"]
+          | Pasaporte
+    = f.input :correo
     = f.input :numero
     = f.input :telefono
 

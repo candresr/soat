@@ -24,7 +24,10 @@ gem 'cancancan', '~> 1.10'
 gem "rolify"
 gem 'rails_12factor', group: :production
 gem 'slim-rails'
-
+gem 'devise'
+gem 'web-app-theme'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'

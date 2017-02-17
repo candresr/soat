@@ -20,14 +20,16 @@ p
   = @poliza.tonelada
 p
   strong Id usuario:
-  = @poliza.id_usuario
+  = @poliza.usuario_id
 p
   strong Id pago:
-  = @poliza.id_pago
+  = @poliza.pago_id
 p
   strong Placa:
   = @poliza.placa
 
 = link_to 'Edit', edit_poliza_path(@poliza)
 '|
-= link_to 'Back', polizas_path
+= link_to 'Home', root_path
+'|
+= link_to 'Pago', new_pago_path

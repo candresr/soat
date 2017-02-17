@@ -1,0 +1,81 @@
+h1 Resumen de su compra del SOAT
+h3 Poliza
+table
+  thead
+    tr
+      th Clase
+      th Subtipo
+      th Años
+      th Numero pasajero
+      th Cilindraje
+      th Tonelada
+      th Placa
+      th Fecha Vigencia
+
+  tbody
+  - @resumen.polizas.each do |poliza|
+      tr
+        td = poliza.clase
+        td = poliza.subtipo
+        td = poliza.años
+        td = poliza.numero_pasajero
+        td = poliza.cilindraje
+        td = poliza.tonelada
+        td = poliza.placa
+        td = poliza.created_at
+br
+
+h3 Detalle del Pago
+
+table
+  thead
+    tr
+      th Numero tcd
+      th Nombre tdc
+      th Fecha vencimiento
+      th Codigo seguridad
+      th Numero coutas
+
+  tbody
+  - @resumen.pagos.each do |pago|
+      tr
+        td = pago.numero_tcd
+        td = pago.nombre_tdc
+        td = pago.fecha_vencimiento
+        td = pago.codigo_seguridad
+        td = pago.numero_coutas
+br
+
+h3 Total Pagado
+
+table
+  thead
+    tr
+      th Valor Prima
+      th Contribucion
+      th RUNT
+      th Total
+
+
+  tbody
+  
+      tr
+        td = @poliza.tarifa.valor
+        td = @poliza.tarifa.contribucion
+        td = @poliza.tarifa.tasa_runt
+        td = (@poliza.tarifa.valor+@poliza.tarifa.contribucion+@poliza.tarifa.tasa_runt)
+
+br
+
+h3 Coberturas ofrecidas por el seguro
+
+p
+  strong Muerte y gastos funerarios: 750 SMLDV
+p
+  strong Gastos médicos: 800 SMLDV
+p
+  strong Incapacidad permanente: 180 SMLDV
+p
+  strong Gastos de transporte: 10 SMLDV
+ 
+= link_to "Descargar Resumen (PDF)", resumenPdf_pagos_path(@pagos, :format => "pdf", :id => @resumen.id)

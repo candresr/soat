@@ -4,14 +4,16 @@
   .form-inputs
     
     = label_tag( :clase, "Clase:")
-    = select("poliza", "clase", Tarifa.distinct.collect {|p| [ p.clase, p.clase ] })
-    = f.input :subtipo
+    = select("poliza", "clase", Tarifa.distinct(:clase).order(:id).collect {|p| [ p.clase, p.id ] })
+    br
+    = label_tag( :subtipo, "Subtipo:")
+    = select("poliza", "subtipo", Tarifa.order(:id).collect {|p| [ p.subtipo, p.id ] })
     = f.input :años
     = f.input :numero_pasajero
     = f.input :cilindraje
     = f.input :tonelada
     = f.input :placa
-    = f.hidden_field :id_usuario, :value => @current_user
+    = f.hidden_field :usuario_id, :value => @current_user
   
 
   .form-actions

@@ -17,7 +17,8 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
-    @current_user = session[:current_user] 
+    @current_user = session[:current_user]
+    @current_poliza = session[:current_poliza]
   end
 
   # POST /usuarios
@@ -25,6 +26,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
 
     if @usuario.save
+      session[:current_user] = @usuario.id
       redirect_to @usuario, notice: 'Usuario was successfully created.'
     else
       render :new
@@ -54,6 +56,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def usuario_params
-      params.require(:usuario).permit(:nombres, :apellidos, :tipo_documento, :numero, :telefono)
+      params.require(:usuario).permit(:nombres, :apellidos, :tipo_documento, :numero, :telefono,:correo)
     end
 end

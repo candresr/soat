@@ -1,11 +1,11 @@
-h1 Editing usuario
+h1 Datos del Tomador
 
 == render 'form'
 
 
 = link_to "Home", root_path 
 '|
-= link_to 'Comprar Poliza', new_poliza_path
+= link_to 'Comprar Poliza', list_poliza_path(@current_user)
 '|
 = link_to 'Pago', new_pago_path
 
