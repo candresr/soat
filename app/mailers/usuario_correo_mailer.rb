@@ -1,5 +1,5 @@
 class UsuarioCorreoMailer < ApplicationMailer
-    default from: 'notifications@example.com'
+    default from: 'cesarramirez@example.com'
     def resumenCorreo(resumen, poliza)
         @resumen = resumen
         @poliza = poliza

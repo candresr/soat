@@ -1,4 +1,5 @@
 <h3>Por favor indique el numero de su placa para comenzar su solicitud de seguro</h3>
+
 <%= form_tag(action: "search", method: "post") do %>
   <%= label_tag(:q, "Buscar placa del vehiculo:") %>
   <%= text_field_tag(:q) %>

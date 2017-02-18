@@ -9,7 +9,7 @@ class PagosController < ApplicationController
   def resumen
     @resumen = Usuario.joins(:polizas,:pagos).find(params[:id])
     @poliza = Poliza.joins(:tarifa).find(params[:id])
-    UsuarioCorreo.resumenCorreo(@resumen, @poliza).deliver_now
+    UsuarioCorreoMailer.resumenCorreo(@resumen, @poliza).deliver_now
   end
 
   def resumenPdf
@@ -18,8 +18,8 @@ class PagosController < ApplicationController
     respond_to do |format|
         format.html
         format.pdf do
-        @pdf = render_to_string :pdf => 'resumen', :template => 'pagos/resumen.html.slim', :encoding => 'UTF-8'
-        send_data(@pdf, :filename => 'resumen',  :type=>'application/pdf')
+        @pdf = render_to_string :pdf => 'resumen'+Time.now.to_s+'.pdf', :template => 'pagos/resumen.html.slim', :encoding => 'UTF-8'
+        send_data(@pdf, :filename => 'resumen'+Time.now.to_s+'.pdf',  :type=>'application/pdf')
       end
     end
   end
