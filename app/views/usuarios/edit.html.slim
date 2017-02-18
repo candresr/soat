@@ -1,11 +1,12 @@
 h1 Datos del Tomador
+br
+h3 Usted ya ha solicitado un seguro con nosotros:
 
 == render 'form'
 
-
+br
 = link_to "Home", root_path 
 '|
 = link_to 'Comprar Poliza', list_poliza_path(@current_user)
-'|
-= link_to 'Pago', new_pago_path
+
 
