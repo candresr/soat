@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :polizas do
      member do
       get 'list'
+      get 'resumenAdmin'
      end
   end
 
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       get 'resumen'
       get 'resumenPdf'
+    end
+    member do
+      get 'resumenAdmin'
     end
   end
   resources :usuarios

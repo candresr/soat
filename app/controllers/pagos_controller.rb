@@ -24,6 +24,10 @@ class PagosController < ApplicationController
     end
   end
 
+  def resumenAdmin
+    @resumen = Usuario.joins(:polizas,:pagos).find(params[:id])
+    @poliza = Poliza.joins(:tarifa).find(params[:id])
+  end
   # GET /pagos/1
   def show
   end

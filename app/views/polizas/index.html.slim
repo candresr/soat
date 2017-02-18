@@ -9,12 +9,9 @@ table
       th Numero pasajero
       th Cilindraje
       th Tonelada
-      th Id usuario
-      th Id pago
       th Placa
       th
-      th
-      th
+
 
   tbody
     - @polizas.each do |poliza|
@@ -25,13 +22,9 @@ table
         td = poliza.numero_pasajero
         td = poliza.cilindraje
         td = poliza.tonelada
-        td = poliza.usuario_id
-        td = poliza.pago_id
         td = poliza.placa
-        td = link_to 'Show', poliza
-        td = link_to 'Edit', edit_poliza_path(poliza)
-        td = link_to 'Destroy', poliza, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Resumen de venta', resumenAdmin_pago_path(poliza.usuario.id)
 
 br
 
-= link_to 'New Poliza', new_poliza_path
+
