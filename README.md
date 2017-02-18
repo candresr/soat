@@ -1,17 +1,35 @@
 #SOAT project
 ### README
 ## Overview:SOAT 
-applicationDepenencies:
+Depenencias Aplicacion:
 - ruby 2.4.0
 - rails 5.1.0
-- MySQL
-- SuckerPunchDevelopment 
-Dependencies:
--MailcatcherTo start, please copy the file database.yml.example and rename it to database.ymlshell
+- Postgresql
 
-rails db:migrate
-### To run the application locally:rails s
-## TESTDependencies:- RSpec Rails- FactoryGirl- FFaker- Rubocop- Shoulda-Matchers
-# Happy Coding! * [Instalation guide](doc/install.md)
-Authors:
+Dependencias de Sistema:
+- libpq5
+- hmtldoc
+
+Dependencias Test:
+- RSpec Rails
+
+### Instalación
+- Clonar el [proyecto] (git@github.com:candresr/soat.git)
+- Crear el proyecto en Heroku (Se requiere tener una cuenta)
+- Descargar e instalar [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli)
+- Clonar el repositorio desde tu local y en el directorio de proyecto 
+    * heroku git:clone -a soatdev
+- Despliegue 
+    * git add .
+    * git commit -am "inicio heroku"
+    * git push heroku master
+
+### Correr la aplicacion en tu local
+- En el directorio soatdev
+    * bundle install
+    * rake db:migration
+    * rails s
+
+# Happy Coding! 
+Autor:
 Cesar Ramirez
